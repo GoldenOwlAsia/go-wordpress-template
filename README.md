@@ -1,15 +1,15 @@
 # WordPress Boilerplate
-
 This is a boilerplate WordPress project that can be used as a starting point for your WordPress development. It includes a basic file structure, essential configuration files, and some commonly used tools.
 
 ## Table of Contents
 
 - [Features](#features)
-- [Requirements](#requirements)
-- [Installation](#installation)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
 
 ## Features
 
@@ -19,47 +19,44 @@ This is a boilerplate WordPress project that can be used as a starting point for
 - Placeholder themes and plugins for quick development setup.
 - Gitignore and editorconfig for consistency.
 
-## Requirements
+## Prerequisites
+Before starting the setup process, make sure you have the following installed on your system:
+- Docker: [Install Docker](https://docs.docker.com/engine/install/)
+- Docker Compose: [Install Docker Compose](https://docs.docker.com/compose/install/)
 
-- PHP 8.0 or later
-- MySQL
-- Composer
+## Getting Started
 
-## Installation
+1. **Configuration:**
 
-1. **Download WordPress:**
+    Copy the example environment into ``.env``
+    
+    ```bash
+    cp .env.example .env
+    ```
 
-   - Clone the repository: https://github.com/GoldenOwlAsia/go-wordpress-template.git
-   - Run command: `make setup`
+2. **Installation:**
 
-4. **Create a configuration file:**
+    Open a terminal and cd to the folder in which `docker-compose.yml` is saved and run:
 
     ```bash
-    cp wp-config-sample.php wp-config.php
+    docker-compose up -d --build
+    ```
     
-5. **Set up your database:**
-    - Create a new MySQL database for WordPress.
-    - Open **wp-config.php** and update the following lines with your database details:
+    This command will download the necessary Docker images and start the containers in detached mode.
+    
+    Access WordPress in your browser by navigating to http://localhost:8000.
 
-        ```php
-        define('DB_NAME', 'your_database_name');
-        define('DB_USER', 'your_database_user');
-        define('DB_PASSWORD', 'your_database_password');
-        define('DB_HOST', 'localhost');
-        ```
-        Replace `your_database_name`, `your_database_user`, and `your_database_password` with your actual database information.
+    Complete the WordPress setup by providing the requested information.
 
-6. **Run the WordPress installer:**
-    - Open your web browser and navigate to your WordPress site. The installation process should start automatically. If not, visit http://yourdomain.com/wp-admin/install.php.
+3. **Stopping WordPress:**
 
-7. **Complete the installation:**
-    - Follow the on-screen instructions to complete the WordPress installation. You'll be asked to provide a site title, create an admin user, and set a password.
+    To stop the WordPress containers, run:
 
-8. **Log in to the WordPress admin dashboard:**
-    - Once the installation is complete, log in to the WordPress admin dashboard using the credentials you set during the installation.
+    ```bash
+    docker-compose down
+    ```
 
-9. **Customize your WordPress site:**
-    - Explore the admin dashboard, install themes and plugins, and customize your site based on your preferences.
+    This will stop and remove the containers. The data in the database will persist, and you can start the containers again with `docker-compose up -d` when needed.
 
 ## Usage
     
@@ -97,6 +94,12 @@ This is a boilerplate WordPress project that can be used as a starting point for
 
 ## Contributing
 
-- [Wordpress Architecture](https://codex.wordpress.org/Site_Architecture_1.5)
-- [Plugin Creation](https://developer.wordpress.org/plugins/intro/)
-- [Theme Creation](https://codex.wordpress.org/Theme_Development)
+1. **Documentation**
+    - [Wordpress Architecture](https://codex.wordpress.org/Site_Architecture_1.5)
+    - [Plugin Creation](https://developer.wordpress.org/plugins/intro/)
+    - [Theme Creation](https://codex.wordpress.org/Theme_Development)
+
+2. **Recommmend Plugins**
+    - [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/)
+    - [Advanced Custom Fields (ACF)](https://wordpress.org/plugins/advanced-custom-fields/)
+    - [WP-Optimize](https://wordpress.org/plugins/wp-optimize/)

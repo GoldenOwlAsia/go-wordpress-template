@@ -2,6 +2,7 @@ wordpress
 
 # Ignore core WordPress files
 wp-config.php
+wp-content
 wp-content/advanced-cache.php
 wp-content/backup-db/
 wp-content/backups/
